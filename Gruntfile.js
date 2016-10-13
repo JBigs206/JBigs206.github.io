@@ -1,4 +1,4 @@
-// Generated on 2016-10-12 using
+// Generated on 2016-10-13 using
 // generator-webapp 1.1.2
 'use strict';
 
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
   // Automatically load required grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
-    buildcontrol: 'grunt-build-control' 
+	buildcontrol: 'grunt-build-control'       
   });
 
   // Configurable paths
@@ -31,19 +31,19 @@ module.exports = function (grunt) {
     // Project settings
     config: config,
       
-    	buildcontrol: {						
-          options:{								
-              dir:	'dist',								
-              commit: true,								
-              push:	true,								
-              message: 'Built %sourceName% from	commit %sourceCommit% on branch	%sourceBranch%'	
-          },						
-          pages: {								
-              options: {								
-                  remote: 'git@github.com:JBigs206/JBigs206.github.io.git',									branch:	'gh-pages'						
-              }						
-          }				
-      },  
+    buildcontrol: {						
+        options: {								
+            dir: 'dist',								
+            commit: true,								
+            push: true,								
+            message: 'Built	%sourceName% from commit %sourceCommit%	on branch %sourceBranch%'				
+        },						
+        pages: {								
+            options: {										
+                remote: 'git@github.com:JBigs206/JBigs206.github.io.git',									branch:	'master'								
+            }						
+        }				
+    },  
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
