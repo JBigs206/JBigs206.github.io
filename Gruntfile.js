@@ -27,6 +27,13 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+      
+   copy: {
+     main: {
+       src: './src/CNAME',
+       dest: './master/'
+     }
+   }, 
 
     // Project settings
     config: config,
