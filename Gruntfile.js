@@ -33,7 +33,7 @@ module.exports = function (grunt) {
    copy: {
      main: {
        src: './src/CNAME',
-       dest: './master/'
+       dest: './app/'
      }
    }, 
 
