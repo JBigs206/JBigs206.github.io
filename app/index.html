@@ -32,14 +32,15 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">jbigs206githubio</a>
+            <!--<a class="navbar-brand" href="#/">Jeff Bigler Web Developer</a>-->
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
+              <li><a ng-href="#/">About</a></li>
+              <li><a ng-href="#/">Projects</a></li>    
               <li><a ng-href="#/">Contact</a></li>
             </ul>
           </div>
@@ -48,14 +49,129 @@
     </div>
 
     <div class="container">
+        
     <div ng-view=""></div>
-    </div>
+    </div> 
+    
+    <div class="intro">
+        <img src="styles/images/seattle.jpg" alt="seattle" height="805px" width="1423.5px">
+    </div>  
+      
+    <div class="about">
+        <div class="aboutContent">
+            <div id="profile">
+                <img src="styles/images/profile.jpg" alt="self" class="img-circle" height="200" width="200">
+            </div>    
+            <div id="statement">
+                <blockquote class="blockquote">
+                    <p class="m-b-0">My name is Jeff Bigler and I am a certified web developer in the Seattle area. I hope to leverage and continue developing my skills in HTML, CSS, and JavaScript as well as advanced JavaScript frameworks such as Angualr.JS and Node.JS. I am currently looking for employment in a front end web development role but am also interested in learning and collaboration opportunities that can grow my knowledge and understanding in web development.</p>
+                </blockquote> 
+            </div>
+        </div>
+      </div>   
+    
+    <div class="projects">
+        <div class="projectContent">
+            
+            <div class="container">
+                <div class="row" id="thumbnailTop">
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a class="thumbnail" href="#">
+                            <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                        </a>
+                    </div>
+                 </div>
+            </div>    
+            
+            <div class="container">
 
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
+            <div class="row">
+
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+             </div>
+
+
+
+            <div class="row" id="thumbnailBottom">
+
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="#">
+                        <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    </a>
+                </div>
+         
+            </div>
+        
+     <!--   <div class="projectContent">
+            <div id="capstone">
+                <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail">
+                                <img src="styles/images/capstone.JPG" alt="capstone" height="172" width="180">
+                            </a>
+                        </div>
+                    </div>
+            </div>
+            <div class="project1_2">
+                <div id="project1">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail">
+                                <img src="styles/images/gameAPI.JPG" alt="game" height="172" width="180">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="project2">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail">
+                                <img src="styles/images/weatherAPI.JPG" alt="weather" height="172" width="180">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="project3_4">
+                <div id="project3">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a class="thumbnail">
+                                <img src="styles/images/map_of_city.JPG" alt="map" height="172" width="180">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="project4">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="styles/images/fortuneCookie.JPG" alt="cookie" height="172" width="180">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div> -->
+            </div>
+        
+        </div>    
+    </div>  
+        
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -89,6 +205,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/projects.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
         <!-- endbuild -->
 </body>
 </html>
