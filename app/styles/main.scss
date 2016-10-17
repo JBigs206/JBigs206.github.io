@@ -18,7 +18,29 @@ html, body{
     
 }
 .intro{
-
+  position: relative;
+}
+.intro img{
+    
+    
+}
+.intro h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color:white;
+    text-shadow: 2px 2px 8px black;
+}
+.intro h3 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color:white;
+    text-shadow: 2px 2px 8px black;
 }
 .about{
     background-color: #AA0000;
@@ -27,7 +49,7 @@ html, body{
     justify-content: space-around;
 }
 #profile img{
-    float: left;
+    float: left; 
     margin-top: 350px;
     margin-left: 100px;
     margin-bottom: 350px;
@@ -61,28 +83,6 @@ html, body{
 #thumbnailBottom{
     margin-top: 100px;
     margin-bottom: 250px;
-}
-#capstone{
- 
-    
-}
-.project1_2{
-   
-}
-#project1{
-    
-}
-#project2{
-   
-}
-.project3_4{
-   
-}
-#project3{
-    
-}
-#project4{
-    
 }
 .description{
     display: inline;
@@ -121,8 +121,7 @@ blockquote{
     margin-left: 500px;
     box-shadow: 8px 8px 15px black;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 #name{
     padding-top: 40px;
