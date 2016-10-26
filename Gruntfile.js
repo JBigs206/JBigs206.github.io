@@ -415,7 +415,7 @@ module.exports = function (grunt) {
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
-        files: [{
+        files: [{  
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
@@ -423,7 +423,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '*.html',
-            'images/{,*/}*.{webp}',
+            'images/{,*/}*.*',
             'styles/fonts/{,*/}*.*',
             'CNAME'  
           ]
