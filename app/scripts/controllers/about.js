@@ -7,6 +7,7 @@
  * # AboutCtrl
  * Controller of the jbigs206githubioApp
  */
+/**
 angular.module('jbigs206githubioApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
@@ -15,3 +16,4 @@ angular.module('jbigs206githubioApp')
       'Karma'
     ];
   });
+*/

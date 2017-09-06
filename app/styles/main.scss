@@ -29,6 +29,9 @@ html, body{
     background-size: cover;
     
 }
+body{
+    height: 100%;
+}
 .intro{
     background-image: url("../images/seattle.jpg");
     min-height: 100%;
@@ -128,26 +131,39 @@ blockquote{
     color:white;
     text-shadow: 2px 2px 8px black;
 }
+
 #map iframe{
     float: left;
-    margin-top: 300px;
-    margin-left: 00px;
-    margin-bottom: 300px;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+   // margin-top: 300px;
+  //  margin-left: 00px;
+  //  margin-bottom: 300px;
     display: flex;
-    flex-direction: column;
+   // flex-direction: column;
     box-shadow: 8px 8px 15px black;
 }
+
 #personal {
     background-color: white;
     font-size: 20px;
-    width: 400px;
-    height: 250px;
-    margin-top: 300px;
-    margin-left: 500px;
+    text-align: left;
+    float: right;
+    //width: 400px;
+   // height: 250px;
+  //  margin-top: 300px;
+   // margin-left: 500px;
     box-shadow: 8px 8px 15px black;
     display: flex;
-    flex-direction: column;   
-}
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    padding: 32px;
+    //flex-direction: column;   
+}/*
 #name{
     padding-top: 40px;
     padding-left: 30px;
@@ -163,7 +179,8 @@ blockquote{
     padding-bottom: 30px;
     padding-left: 30px;
     display: inline;
-}
+}*/
+
 .navbar {
     margin: 0;
 }  
