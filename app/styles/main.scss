@@ -10,10 +10,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 368px) {
   .container {
     max-width: 730px;
   }
+   
 }
 
 html, body{
@@ -29,21 +30,33 @@ html, body{
     background-size: cover;
     
 }
-body{
-    height: 100%;
+
+@mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+
+  padding-top: $slope * 100%;
+  height: $height;
+
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
 }
-.intro{
-    background-image: url("../images/seattle.jpg");
-    min-height: 100%;
-   /* background-attachment: fixed;*/
+
+.intro {
+    @include fluid-ratio(800px 500px, 300px 150px);
+    background-image: url("../images/portfolioBackgroundEdit3.jpg"); 
+   // min-height: 100%;
+   /* background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover; */
 } 
-.intro img{
-   
-    
-}
+ 
 .intro h2 {
     z-index: 2;
     position: absolute;
@@ -58,48 +71,62 @@ body{
     position: absolute;
     top: 15%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
     text-align: center;
     color:white;
     text-shadow: 2px 2px 8px black;
 }
 .about{
-    background-color: #AA0000;
+   // background-color: #AA0000;
+    background-color: #3299FF;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 #profile img{
-    float: left; 
-    margin-top: 350px;
-    margin-left: 100px;
-    margin-bottom: 350px;
-    box-shadow: 6px 6px 15px black;
+    
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 50px;
     display: flex;
-    flex-direction: column;
+
+   flex-direction: column;
+    box-shadow: 8px 8px 15px black;
 }
 #statement blockquote { 
-    margin-top: 300px;
-    margin-left: 450px;
-    margin-bottom: 300px;
-    width:400px;
+   font-size: 30px;
+    text-align: left;
+    box-shadow: 8px 8px 15px black;
     display: flex;
-    flex-direction: column;
+    margin-top: 250px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 250px;
+    padding: 32px;
+    display: flex;
+
+   flex-direction: column;
 }
 .projects{
-    background-color: black;
+   // background-color: black;
+    background-color: #fde700;
     padding-top: 250px;
     padding-bottom: 250px;
     padding-left: 50px;
     padding-right: 50px;    
-    color: white;
+    color: black;
   
 }
 .projectContent{
    margin: auto;
+
   
    /* margin-left: 400px;
     margin-right: auto;*/
+}
+.thumbnail{
+    border: 2px solid;
 }
 /*
 #thumbnailTop{
@@ -111,6 +138,9 @@ body{
     margin-top: 100px;
     margin-bottom: 250px;
 } */
+.caption{
+    font-size: 20px;
+}
 .description{
     display: inline;
     background-color: white;
@@ -122,16 +152,21 @@ body{
 }
 .contact{
     color: black;
-    background-color: #AA0000;
+   // background-color: #AA0000;
+    background-color: #3299FF;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 blockquote{
-    color:white;
-    text-shadow: 2px 2px 8px black;
+    color:black;
+    background-color:white; 
+   // text-shadow: 2px 2px 6px black;
 }
-
+.contactInfo{
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
 #map iframe{
     float: left;
     margin-top: 50px;
@@ -183,7 +218,8 @@ blockquote{
 
 .navbar {
     margin: 0;
-}  
+} 
+
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
@@ -193,3 +229,4 @@ blockquote{
 .navbar .navbar-collapse {
   text-align: center;
 }
+
