@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-/**
+
 angular
   .module('jbigs206githubioApp', [
     'ngAnimate',
@@ -36,4 +36,3 @@ angular
         redirectTo: '/'
       });
   });
-*/

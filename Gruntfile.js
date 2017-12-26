@@ -34,14 +34,14 @@ module.exports = function (grunt) {
       
     buildcontrol: {						
         options: {								
-            dir: 'dist',								
-            commit:	true,								
-            push: true,								
+            dir: 'dist',						
+            commit:	true,						
+            push: true,							
             message: 'Built	%sourceName% from commit %sourceCommit%	on branch %sourceBranch%'				
         },						
         pages: {								
-            options: {										
-                remote:	'git@github.com:JBigs206/JBigs206.github.io.git',									branch:	'master'								
+            options: {							
+                remote:	'git@github.com:JBigs206/JBigs206.github.io.git',				branch:	'master'				
             }						
         }				
     },  
