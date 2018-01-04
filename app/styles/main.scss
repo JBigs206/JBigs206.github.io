@@ -211,23 +211,30 @@ html, body{
     padding: 10px;
     border-radius: 15px;
 }
+
+blockquote{
+    color:black;
+    background-color:#fde700; 
+   // text-shadow: 2px 2px 6px black;
+}
+
+.icons{
+   padding-bottom: 30px; 
+}
+
 .contact{
     color: black;
-   // background-color: #AA0000;
     background-color: #3299FF;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-blockquote{
-    color:black;
-    background-color:white; 
-   // text-shadow: 2px 2px 6px black;
-}
+
 .contactInfo{
    // margin-top: 250px;
     margin-bottom: 250px;
 }
+/*
 #map iframe{
     float: left;
     margin-top: 50px;
@@ -242,8 +249,9 @@ blockquote{
     box-shadow: 8px 8px 15px black;
 }
 
+
 #personal {
-    background-color: white;
+    background-color: #fde700;
     font-size: 20px;
     text-align: left;
     float: right;
@@ -259,7 +267,9 @@ blockquote{
     margin-bottom: 50px;
     padding: 32px;
     //flex-direction: column;   
-}/*
+}
+*/
+/*
 #name{
     padding-top: 40px;
     padding-left: 30px;
@@ -290,4 +300,5 @@ blockquote{
 .navbar .navbar-collapse {
   text-align: center;
 }
+
 
