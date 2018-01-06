@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "transitions";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -153,6 +155,8 @@ html, body{
     background-color: #fde700;
     box-shadow: 8px 8px 15px black;
     display: flex;
+    border-radius: 25px;
+    
 }
 
 #projectsGroup2{
@@ -161,12 +165,15 @@ html, body{
     background-color: #fde700;
     box-shadow: 8px 8px 15px black;
     display: flex;
+    border-radius: 25px;
 }
 
-#subject{
+.subject{
     padding-left: 50px;
     padding-right: 50px;
 }
+
+
 
 .projectItems{
     //background-color: white;
@@ -216,6 +223,7 @@ blockquote{
     color:black;
     background-color:#fde700; 
    // text-shadow: 2px 2px 6px black;
+    border-radius: 25px;
 }
 
 .icons{
@@ -301,4 +309,4 @@ blockquote{
   text-align: center;
 }
 
-
+//Animation
