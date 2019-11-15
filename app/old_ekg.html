@@ -18,27 +18,23 @@
     </head>
     <body ng-app="jbigs206githubioApp"> <!-- data-spy="scroll" data-target=".navbar" data-offset="50"-->
         <!--[if lte IE 8]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
         <!-- Add your site or application content here -->
         <div class="header">
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
                         <!-- <a class="navbar-brand" href="#/">Jeff Bigler Web Developer</a> -->
                     </div>
-
                     <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
                         <ul class="nav navbar-nav">
                             <li><a href="index.html" target="_self">Home</a></li>
                             <li><a href="about.html" target="_self">About</a></li>
@@ -50,25 +46,64 @@
                 </div>
             </div>
         </div>
-
         <div id="top" class="container">
-
-            <div ng-view=""></div>
-        </div> 
-
+            <div ng-view></div>
+        </div>
         <div class="introAbout">
             <h2>Jeff Bigler</h2>
             <h3>Web Development</h3>
         </div>
+        <div class ="projects" id="projects">
+            <div class ="projectContent">
+                <div id ="projectsGroup1" style="display:block;">
+                    <h1 class="write-up-title">Old EKG</h1>
+                    <div class="desc-box">
+                        <div class="p-10">
+                            <p>Old EKG is a medical app which allows its users to take or upload pictures of their EKG (electrocardiogram) to their app. This is used for people who find it beneficial to have a secure and handy place to keep records of their EKG’s if they find a need to access them quickly and frequently.</p>
+                            <p>Because this app is storing sensitive medical information of its users, there was a need to have access to the app password protected. To accomplish this, we set up a pin passcode for users to set up and use when accessing the app. </p>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img src="images/old_EKG_home.jpg" class="write-up-img">
+                    </div>
+                    
+                    <div class="desc-box">
+                        <p class="p-10">The way we are setting and storing the passcode the user creates, or re-enters after returning to the app, is to pass the numbers the user enters into a function we created. This add() function takes the number value that is passed into it and then goes through a series of checks to determine if the user gets redirected into the app.  </p>
+                    
+                    </div>
+                    
+                    <div class="img-container">
+                        <img src="images/old_EKG_html.png" class="write-up-img">
+                    </div>
+                    <div class="desc-box">
+                        <p class="p-10">In the add function, we first need to point the user's phone’s local storage to either see if a ‘Securitypin’ is already set or set one once the user creates a passcode. Once inside the local storage, we want to set the passcode variable to the values that are being passed in by the user. We then have a int variable, which is initially set to zero, that we are using to determine what position we are going to set the number the user enters in the passcode.  If the int variable is zero, then we set the number the user enters to the codeone variable and increment the int variable by one so that the next entry will have the int variable read one and we continue to do this until the user has entered four numbers. </p>
+                    
+                    </div>
+                    
+                    <div class="img-container">
+                        <img src="images/old_EKG_add.png" class="write-up-img">
+                    </div>
+                    <div class="desc-box">
+                        <p class="p-10">We also want to simultaneously check to see if a user already has a passcode set when they are entering in digits for the passcode. With the ngOnInit() function, which gets called on the page load, we check if a user has a passcode already and then set the variable userPassCode to that passcode. This allows us to perform the check in the add() function which is seeing if userPassCode length is greater than 0. If the length is in fact greater than 0, then that means the user already has a passcode. So if we are able to get inside that check, we then want to check if the user has entered four digits. If the user has entered four digits, then check if the passcode they entered is equal to the pass code which is already stored. If this check succeeds, then we allow the user into the app. But if this check fails, then the user is prompted on the screen that the code is incorrect.</p>
+                    
+                    </div>
+                    <div class="img-container">
+                        <img src="images/old_ekg_if.png" class="write-up-img">
+                    </div>
+                    <div class="desc-box">
+                        <p class="p-10">Next, if the check to see if the user has a passcode set fails, we want to see if the passcode length the user has entered has reached 4 digits so we can set a new passcode for the user. We then are doing a check to determine when to prompt the user to re-enter their created passcode so that they can confirm it before being navigated into the app. If the newPinCount variable is equal to zero, then we direct the user to confirm their pin by entering it again. We also set the finalPin variable to equal the values of all the individual digit variable we set in sequential order. Then we set the individual digit variable to null, so the user can re-enter the code, and add one to the newPinCount variable so that it is equal to one. When the user then re-enters their pin, they will pass the first check of newPinCount being greater than zero so we can then allow them into the app and set the local storage ‘Securitypin’ to their entered pincode. They will then be able to use this pincode for future access to the app and not have to reset their pin each time.  </p>
+                    </div>
+                    <div class="img-container">
+                        <img src="images/old_EKG_else.png" class="write-up-img">
+                    </div>
+                    
+                    <div class="img-container">
+                        <img src="images/oldEKG.JPG" class="write-up-img">
+                    </div>
 
-        <div id="aboutProfile" class="about"> 
-            <div class="aboutContent">
-                <div id="statement">
-                    <blockquote class="blockquote">
-                        <p class="m-b-0">My name is Jeff Bigler and I am a web developer. I have skills in front end (HTML, CSS, JavaScript, AngularJS), back end (PHP, Laravel, MySQL) as well as mobile app development using frameworks such as Ionic and Cordova. I’m always interested in learning and collaborating opportunities that can grow my knowledge and understanding in web development.</p>
-                    </blockquote> 
                 </div>
-            </div>
+                
+            </div> 
         </div>
 
 
@@ -95,10 +130,8 @@
             </div>
         </div> 
 
-
         <div id="resumeModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
@@ -106,22 +139,15 @@
                         <center><h4 class="modal-title"><strong>Resume</strong></h4></center>
                     </div>
                     <div class="modal-body">
-
                         <embed src="images/Jeff%20Bigler%20Resume.pdf"
                                frameborder="0" width="100%" height="600px">
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
-
-
-
         <!--Font Awesome-->  
         <script src="https://use.fontawesome.com/9ede190343.js"></script> 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -134,6 +160,8 @@
             ga('create', 'UA-XXXXX-X');
             ga('send', 'pageview');
         </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
@@ -154,10 +182,13 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/main.js"></script>
+        <!-- not needed right now. -->
+        <!--
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/projects.js"></script>
-        <script src="scripts/controllers/contact.js"></script> 
+        <script src="scripts/controllers/contact.js"></script>
+        -->
         <!-- endbuild -->
     </body>
 </html>

@@ -30,7 +30,7 @@ html, body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    
+    background-color: #3299FF;
 }
 
 @mixin fluid-ratio($large-size, $small-size) {
@@ -47,6 +47,24 @@ html, body{
   background-size: cover;
   -moz-background-size: cover;  /* Firefox 3.6 */
   background-position: center;  /* Internet Explorer 7/8 */
+}
+
+.p-10{
+    padding: 10px;
+}
+
+.write-up-title{
+    font-weight: bold; 
+    text-align:center; 
+    padding-top: 20px; 
+    text-decoration: underline; 
+    text-shadow: 8px 8px 15px black;
+}
+
+.img-container{
+    margin: 0 auto; 
+    width: 90%; 
+    padding: 20px;
 }
 
 .intro {
@@ -195,6 +213,22 @@ html, body{
      
 }
 
+.desc-box{
+    margin: 0 auto; 
+    width: 85%; 
+    font-size: 20px; 
+    background-color: white; 
+    box-shadow: 8px 8px 15px black; 
+    margin-top: 20px;
+}
+
+.write-up-img{
+    margin: 0 auto; 
+    width: 100%; 
+    height: auto; 
+    box-shadow: 8px 8px 15px black;
+}
+
 
 /*
 #thumbnailTop{
@@ -309,4 +343,4 @@ blockquote{
   text-align: center;
 }
 
-//Animation
+

@@ -15,6 +15,7 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+        <script src="https://kit.fontawesome.com/1e2059b9a2.js" crossorigin="anonymous"></script>
     </head>
     <body ng-app="jbigs206githubioApp"> <!-- data-spy="scroll" data-target=".navbar" data-offset="50"-->
         <!--[if lte IE 8]>
@@ -34,7 +35,6 @@
                             <span class="icon-bar"></span>
                         </button>
 
-                        <!-- <a class="navbar-brand" href="#/">Jeff Bigler Web Developer</a> -->
                     </div>
 
                     <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -50,73 +50,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="intro">
+            <div id="backgroundImage">
+                <h2>Jeff Bigler</h2>
+                <h3>Web Development</h3>
+            </div>
+        </div>
 
         <div id="top" class="container">
 
             <div ng-view=""></div>
         </div> 
 
-
-        <div class="intro">
-            <div id="backgroundImage">
-                <!-- <img src="images/seattle.jpg" alt="seattle" height="805px" width="1423.5px"> -->
-                <h2>Jeff Bigler</h2>
-                <h3>Web Development</h3>
-            </div>
-        </div>
-
-        <!--  <div id="aboutProfile" class="about"> 
-<div class="aboutContent"> -->
-        <!-- <div id="profile">
-<a id="aboutProfile"></a>
-<img class="pull-left" src="images/profile.jpg" alt="self"  height="400" width="450">
-</div> -->   
-        <!--    <div id="statement">
-<blockquote class="blockquote">
-<p class="m-b-0">My name is Jeff Bigler and I am a certified web developer. I have skills in HTML, CSS, and JavaScript as well as advanced JavaScript frameworks such as Angualr.JS and Node.JS. I am currently looking for employment in a front end web development role but I’m always interested in learning and collaborating opportunities that can grow my knowledge and understanding in web development.</p>
-</blockquote> 
-</div>
-</div>
-</div> -->
-
-
-
-
-
-        <!--   <div class="contact">
-<div class="contactInfo">
-<div class = "row">
-<!-- <div class = "col-sm-6 col-md-3">
-<div id="map">
-<iframe
-width="400"
-height="250"
-frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDS9APDBxyUlcXamtiZ5UoiJbghoSK6Oo4
-&q=Seattle+WA" allowfullscreen>
-</iframe>
-</div>
-</div>
-
-<div id="personal">
-<div class="card text-center">
-
-<div class="card-block">
-<p class="card-text" id="name"><strong>Jeff Bigler</strong></p>
-<p class="card-text" id="email"><strong>Email:</strong> JeffreyRichardBigler@gmail.com</p>
-<p class="card-text" id="phone"><strong>Phone:</strong> (206)-714-8777</p><br>
-<div class="icons">
-<a href="https://github.com/JBigs206" target="_blank"><i class="fa fa-github fa-fw fa-2x" aria-hidden="true"></i></a>
-<a href="https://www.linkedin.com/in/jeff-bigler-bab13646" target="_blank"><i class="fa fa-linkedin fa-fw fa-2x" aria-hidden="true"></i></a>
-<a href="http://jeffbigler.weebly.com/" target="_blank"><i class="fa fa-external-link-square fa-fw fa-2x" aria-hidden="true"></i></a>
-</div>
-</div> 
-</div>
-</div>
-
-</div>
-</div>
-</div> -->
 
         <div class="modal" id="contactModalVertical" tabindex="-1" role="dialog" aria-labelledby="contactModalVerticalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -198,12 +144,14 @@ src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDS9APDBxyUlcXamtiZ5Uoi
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/main.js"></script>
+        
         <!-- Not neededright now -->
         <!--
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/projects.js"></script>
 <script src="scripts/controllers/contact.js"></script> -->
+        <script src="scripts/controllers/paybud.js"></script>
         <!-- endbuild -->
     </body>
 </html>

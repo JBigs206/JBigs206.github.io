@@ -32,6 +32,12 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      
+      .when('/paybud', {
+        templateUrl: 'views/paybud.html',
+        controller: 'PaybudCtrl',
+        controllerAs: 'paybud'
+      })
       .otherwise({
         redirectTo: '/'
       });
