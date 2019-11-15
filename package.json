@@ -42,5 +42,8 @@
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js"
+  },
+  "dependencies": {
+    "os-tmpdir": "^2.0.0"
   }
 }
