@@ -1,0 +1,146 @@
+<div class="header">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#/">Jeff Bigler Web Developer</a> -->
+            </div>
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/" target="_self">Home</a></li>
+                    <li><a href="#/about" target="_self">About</a></li>
+                    <li><a href="#/projects" target="_self">Samples of Work</a></li>    
+                    <li ><a href="#" target="_self" data-toggle="modal" data-target="#contactModalVertical">Contact</a></li>
+                    <li ><a href="#" target="_self" data-toggle="modal" data-target="#resumeModal">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="introAbout">
+    <h2>Jeff Bigler</h2>
+    <h3>Web Development</h3>
+</div>
+<div class ="projects" id="projects">
+    <div class ="projectContent">
+        <div id ="projectsGroup1" style="display:block;">
+            <h1 class="write-up-title">PayBud</h1>
+            <div class="desc-box">
+                <p class="p-10">PayBud is a member rewards app that uses web based games such as a spin wheel, match game and trivia as well as location check-ins to earn points. Members can either convert the points they earn to US dollars that is loaded onto a debit card or to buy merchandise that ranges from physical items to digital gift cards.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud.JPG" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <div class="p-10">
+                    <p>In order to keep members engaged with the app, we implemented Pushwoosh API into PayBud to send push notifications to members. To better utilize Pushwoosh’s capabilities, we built a dashboard that allows the admin for PayBud to send out customized pushes.</p>
+                    <p>The dashboard is a multi-step form that takes a MySQL query to select targeted members, send personalized messages, and navigate members to  specific views once a push is received. </p>
+                </div>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_dash.JPG" class="write-up-img">
+            </div>
+            
+            <div class="desc-box">
+                <div class="p-10">
+                    <p>The front end was built using Angularjs which takes the data being entered by the admin and passes it along to the api. The api is written in PHP which receives data from the Angular controller and passes the data to our object file which stores our Pushwoosh api call. </p>
+                    <p>The first step of the form is to have the admin enter in a MySQL query that will determine which members are going to receive the upcoming push notification. This query can range from selecting a single user, as shown in the image above, or be more targeted such as “SELECT * FROM paybud.user_profile WHERE user_id NOT IN (SELECT user_id FROM paybud.user_trivia_games);” which would return users who have not played a trivia game. The admin could then send a push to those users suggesting to play a game of trivia.</p>
+                    <p>Once the admin has entered in a query and hits the submit button, the remaining form inputs appear in front of the admin to continue the process. The initial step is to allow for the admin to make sure the query they are sending is indeed reaching who they want to receive the push. The number of members queried is displayed to the admin and they can then continue filling out the message, target page to send the user to on push received, and the amount of time to delay before the push gets sent to the members involved.</p>
+                </div>    
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_dash_form.JPG" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">The handling of the MySQL query initial check is done in the controller. Using Angular’s ng-click directive, we are passing the query the admin has entered into the input field through Angular’s ng-model directive so that it can be sent into the controller. In the function we created, we are passing in the query into our api using a GET request. The data object is letting the Angular service know we are wanting the data sent to the “check-count” request. Then, in the callbacks, if the request was sent successfully, we trigger the remaining elements of the form to be displayed to the admin.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_sql_count.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">Looking at the initial “check-count” request in our api, we are taking the MySQL query that we have passed to the api and now sending it to the UserProfile object to return to us the number of members selected.  And in the UserProfile object class, we are running the query in our database and returning the rows that are fetched.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_get_api.png" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_get_object.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">After the admin has finished filling out the rest of the form, the next step is for them to submit their request to send out the push notification. In the controller, similarly to the initial query check earlier, we are passing the data captured in the form to the api but instead of performing a GET request we are submitting a POST request. And if this POST request returns successfully in the callbacks, we want to clear the form data and re-hide the message, view, and time delay fields so the admin can submit a new push notification request without having to refresh the page. </p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_send_push.png" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_dash_form_sending.JPG" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">In the api for the POST request, we are again calling on the UserProfile object class so that we can get the rows of users we are wanting to the push notification to. We also are setting up view, time delay, message, and query variables based on what the admin had input into the field so that we can pass these into the pushwoosh object file to send the push. We then are looping through the array we created with the rows of users and then passing that user_id, along with the other variable we created, into the pushwoosh object function.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_api_switch.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">Pushwoosh provides the syntax of how it wants to receive the data we are passing into it which allows us to simply plug in the variables  we are passing to their corresponding values. One important facet to note is that upon logging into PayBud, using the app, we store a unique device token into the user table which we use to identify which phones are going to receive a push notification. In order to tell pushwoosh which phone we want to send a push to, we create a $device array and then push the users device_token from their entry in the user table. That $device array then gets sent in the pushwooshcall along with our other variables.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_push_object.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">And after all that, if the push the admin creates is successful, they are shown a success message and are able to continue on sending push notifications. </p>
+            </div>
+            <div class="img-container">
+                <img src="images/paybud_dash_form_sent.JPG" class="write-up-img">
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="modal" id="contactModalVertical" tabindex="-1" role="dialog" aria-labelledby="contactModalVerticalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center><h2 class="modal-title" id="contactModalVerticalLabel"><strong>Contact</strong></h2></center>
+            </div>
+            <div class="modal-body">
+                <center><h2 class="card-text" id="name"><strong>Jeff Bigler</strong></h2></center>
+                <center><h3 class="card-text" id="email"><strong>Email:</strong> JeffreyRichardBigler@gmail.com</h3></center>
+                <center><h3 class="card-text" id="phone"><strong>Phone:</strong> (206)-714-8777</h3></center><br>
+                <center><div class="icons">
+                    <a href="https://github.com/JBigs206" target="_blank"><i class="fa fa-github fa-fw fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/jeff-bigler-bab13646" target="_blank"><i class="fa fa-linkedin fa-fw fa-2x" aria-hidden="true"></i></a>
+                    <a href="http://jeffbigler.weebly.com/" target="_blank"><i class="fa fa-external-link-square fa-fw fa-2x" aria-hidden="true"></i></a>
+                    </div></center>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div id="resumeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <center><h4 class="modal-title"><strong>Resume</strong></h4></center>
+            </div>
+            <div class="modal-body">
+                <embed src="images/Jeff%20Bigler%20Resume.pdf"
+                       frameborder="0" width="100%" height="600px">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
