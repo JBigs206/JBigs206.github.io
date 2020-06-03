@@ -1,0 +1,146 @@
+<div class="header">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#/">Jeff Bigler Web Developer</a> -->
+            </div>
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/" target="_self">Home</a></li>
+                    <li><a href="#/about" target="_self">About</a></li>
+                    <!-- <li><a href="#/projects" target="_self">Samples of Work</a></li> -->    
+                    <li ><a href="#" target="_self" data-toggle="modal" data-target="#contactModalVertical">Contact</a></li>
+                    <li ><a href="#" target="_self" data-toggle="modal" data-target="#resumeModal">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="introAbout">
+    <h2>Jeff Bigler</h2>
+    <h3>Web Development</h3>
+</div>
+<div class ="projects" id="projects">
+    <div class ="projectContent">
+        <div id ="projectsGroup1" style="display:block;">
+            <h1 class="write-up-title">Emergency Contact Link</h1>
+            <div class="desc-box">
+                <p class="p-10">Emergency Contact Link is a paid membership hybrid app and website which allows people who experience an emergency to send a notification to specific contacts. Emergency contacts can either be medical or non-medical which determines the type of notification they receive in the event of an emergency. Emergencies can be triggered by a member from within their account or by someone else by navigating to the designated emergency trigger page on the website.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_home.JPG" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">On the emergency trigger page, someone can enter in the victim’s information, along with their information to search for the victim’s membership and initiate the notifications to send to the member’s contacts. Both the victim and aid’s info is collected in the same form to speed up the process of searching for a member and getting the notifications sent.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_main_view.JPG" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_form_filled.JPG" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_search_results.JPG" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">To achieve this we first need to collect the data in a form and submit it to our api. We do this by specifying that we want to post the data from our inputs to the “emergencyForm” formGroup we have set up in our controller. The inputs then use “formControlName” to specify the names of the data we are sending and submit the data to the “getKickoffInfo()” function.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_view.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">For the “getKickoffInfo()” function in the controller, we first check if the form we submitted is valid. If it is not valid, we show an error to the user that a required field from the form has been left out and needs to be filled in. If the form is valid then we send the data we collected to our api to check to see if there is a member on file with the corresponding information. If data is returned back from our api, we then push that data to an array we created and repeat the data to the user on the web view. If no data is returned, we show a message to the user that nothing was returned. </p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_ctrl_info.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">To set up returning member info in our Laravel api, we pass our data to the Angular auth service that is pointing to the corresponding Laravel route. Our angular service function communicates to the Laravel back end that it wants to pass the data to the “friendInfo” Laravel route in the “ekickoff” route group. Laravel then passes the data to the “friendInfo()” function in the “kickoffController”.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_service.png" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_api_info_route.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">The “friendInfo()” function first checks to see if the required data it needs to find the correct user is present. If it is not, the function will return a status of “fail” back to the angular controller. If it does pass the validation, then the Laravel controller can search through the database for the member and return the results back to the Angular controller.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_api_ctrl.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">If the member that is returned is correct, the user can click the “Trigger Emergency” button which will then send the member’s info along with the aids info from the original form to the “kickoffFriend()” function. This function passes the members id along with the information of the aid to the “kickoffFriendForm” and sends it to our api.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_search_results.JPG" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_ctrl_kickoff.png" class="write-up-img">
+            </div>
+            <div class="desc-box">
+                <p class="p-10">Similarly to how we passed data for finding the member info, we pass the data of the member along with the sender’s info they provided to the Angular auth service. We let the service know that we want to send the data to Laravel route of “friend” in the “ekickoff” route group. In the corresponding Laravel controller, we first check the validation like before and then get the member by searching with the passed in member id. Next, we want to check to make sure the event isn’t being triggered multiple times back to back. If this member has already had an emergency event triggered for them within the last five minutes, it will return a failed result back to the Angular controller letting the user know that an event is already in progress.  If this check is passed, we can then post to the emergency event table we have in the database to keep track of events that have been triggered. We then set up a SMS text message notification to be sent to the member the emergency is for, allowing them to cancel the emergency before sending notifications to their emergency contacts. If the member does not respond to the text message within the time frame they set during their registration process, their contacts will then be notified.</p>
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_service2.png" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_api_trigger_route.png" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_api_ctrl_kickoff.png" class="write-up-img">
+            </div>
+            <div class="img-container">
+                <img src="images/ecl_api_ctrl_text.png" class="write-up-img">
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="modal" id="contactModalVertical" tabindex="-1" role="dialog" aria-labelledby="contactModalVerticalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center><h2 class="modal-title" id="contactModalVerticalLabel"><strong>Contact</strong></h2></center>
+            </div>
+            <div class="modal-body">
+                <center><h2 class="card-text" id="name"><strong>Jeff Bigler</strong></h2></center>
+                <center><h3 class="card-text" id="email"><strong>Email:</strong> JeffreyRichardBigler@gmail.com</h3></center>
+                <center><h3 class="card-text" id="phone"><strong>Phone:</strong> (206)-714-8777</h3></center><br>
+                <center><div class="icons">
+                    <a href="https://github.com/JBigs206" target="_blank"><i class="fa fa-github fa-fw fa-2x" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/jeff-bigler-bab13646" target="_blank"><i class="fa fa-linkedin fa-fw fa-2x" aria-hidden="true"></i></a>
+                    <a href="http://jeffbigler.weebly.com/" target="_blank"><i class="fa fa-external-link-square fa-fw fa-2x" aria-hidden="true"></i></a>
+                    </div></center>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<div id="resumeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <center><h4 class="modal-title"><strong>Resume</strong></h4></center>
+            </div>
+            <div class="modal-body">
+                <embed src="images/Jeff%20Bigler%20Resume.pdf"
+                       frameborder="0" width="100%" height="600px">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

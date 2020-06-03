@@ -23,7 +23,7 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/projects.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
@@ -41,6 +41,11 @@ angular
         templateUrl: 'views/project_samples/paybud.html',
         controller: 'PaybudCtrl',
         controllerAs: 'paybud'
+      })
+      .when('/ecl', {
+        templateUrl: 'views/project_samples/ecl.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
       .when('/aroma_yogini', {
         templateUrl: 'views/project_samples/aroma_yogini.html',

@@ -63,8 +63,12 @@ html, body{
 }
 
 .intro {
-    @include fluid-ratio(800px 500px, 300px 150px);
-    background-image: url("../images/portfolioBackgroundEdit4.jpg"); 
+    @include fluid-ratio(900px 500px, 300px 150px);
+    background-image: url("../images/portfolioBackgroundEdit4.jpg");
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
    // min-height: 100%;
    /* background-attachment: fixed;
     background-position: center;
